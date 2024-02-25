@@ -1,0 +1,180 @@
+#i importeed the 'enum' libary for the 'PassengerClass' to show the different classes a passenger can belong to (either Economy,Business or First )
+from enum import Enum
+#i imported this 'datetime' libary because we're including dates within our code and need to display them later
+import datetime
+
+#i defined the enum 'PassengerClass' to show the 3 different classes a passenger can have: 
+class PassengerClass(Enum):
+    ECONOMY_CLASS = 'Economy Class'
+    BUSINESS_CLASS = 'Business Class'
+    FIRST_CLASS = 'First Class'
+
+#i defined the class 'Passenger' to have all the details/attributes a passenger cn have
+class Passenger:
+    def __init__(self, name, booking_reference, passport_number, passenger_class): # these are the class Passenger attributes 
+    #i initialized the class Passenger attributes  
+        self.name = name #i assigemed the 'name' value to the attribiute of 'name' for the instance of 'Passenger'
+        self.booking_reference = booking_reference #then i did the same for the rest of the attrbiutes 
+        self.passport_number = passport_number
+        self.passenger_class = passenger_class
+
+    def get_name(self): #i defined the getter method for the passenger name to get the value of the attribute 'name'
+        return self.name
+
+    def set_name(self, name): #then the setter method to update the passenger name
+        self.name = name
+
+    def get_booking_reference(self): #i defined the getter method to get the booking reference of the passenger
+        return self.booking_reference
+
+    def set_booking_reference(self, booking_reference): #then the setter method to update the booking reference of the passenger
+        self.booking_reference = booking_reference
+
+    def get_passport_number(self): #i defined the getter method to get the passport number of the passenger 
+        return self.passport_number
+
+    def set_passport_number(self, passport_number): #then the setter method to update the passport number of the passenger
+        self.passport_number = passport_number
+
+    def get_passenger_class(self): #i defined the getter method to get the class of the passenger (either Economy,Business or First)
+        return self.passenger_class
+
+    def set_passenger_class(self, passenger_class): #then the setter method to update the class of the passenger
+        self.passenger_class = passenger_class
+
+#i defined the class 'Flight' to have all the details of the flight
+class Flight:
+    def __init__(self, airline, origin, destination, departure_time, arrival_time): #these are the class Flight attributes
+    #i initialized the class Flight attributes 
+        self.airline = airline #i assigned the 'airline' value to the attribute 'airline' for the instance of 'Flight'
+        self.origin = origin #i did the same for the rest of the attributes
+        self.destination = destination
+        self.departure_time = departure_time
+        self.arrival_time = arrival_time
+
+    def get_airline(self): #i defined the getter method to get the 'airline' to get the value of the attribute 'airline'
+        return self.airline
+
+    def set_airline(self, airline): #then the setter method to update the 'airline' value
+        self.airline = airline
+
+    def get_origin(self): #i defined the getter method to get the 'origin'
+        return self.origin
+
+    def set_origin(self, origin): #then the setter method to update the 'origin' value
+        self.origin = origin
+
+    def get_destination(self): #i defined the getter method to get the 'destination'
+        return self.destination
+
+    def set_destination(self, destination): #then the setter method to update the 'destination' value
+        self.destination = destination 
+
+    def get_departure_time(self): #i defined the getter method to get the 'departure_time'
+        return self.departure_time
+
+    def set_departure_time(self, departure_time): #then the setter method to update the 'departure_time' value
+        self.departure_time = departure_time
+
+    def get_arrival_time(self): #i defined the getter method to get the 'arrival_time'
+        return self.arrival_time
+
+    def set_arrival_time(self, arrival_time): #then the setter method to update the 'arrival_time' value 
+        self.arrival_time = arrival_time
+
+#i defined the class BoardingPass to have all details of the boarding pass 
+class BoardingPass:
+    def __init__(self, passenger, flight, seat_number, gate_number, boarding_time, terminal_number, electronic_ticket): #these are the attributes of the class BoardingPass
+    #i initialized the attributes of class BoardingPass
+        self.passenger = passenger #i assigned the 'passenger' value to the attribute 'passenger' for the instance of 'BoardingPass'
+        self.flight = flight #i did the same for the rest of the attributes
+        self.seat_number = seat_number
+        self.gate_number = gate_number
+        self.boarding_time = boarding_time
+        self.terminal_number = terminal_number  
+        self.electronic_ticket = electronic_ticket
+
+    def get_passenger(self): #i defined the getter method to get the 'passenger' to get the value of 'passenger' attribute
+        return self.passenger
+
+    def set_passenger(self, passenger): #then the setter method to update the 'passenger' value
+        self.passenger = passenger
+
+    def get_flight(self): #i defined the getter method to get the 'flight'
+        return self.flight
+
+    def set_flight(self, flight): #then the setter method to update the 'flight' value
+        self.flight = flight
+
+    def get_seat_number(self): #i defined the getter method to get the 'seat_number'
+        return self.seat_number
+
+    def set_seat_number(self, seat_number): #then the setter method to update the 'seat_number' value
+        self.seat_number = seat_number
+
+    def get_gate_number(self): #i defined the getter method to get the 'gate_number'
+        return self.gate_number
+
+    def set_gate_number(self, gate_number): #then the setter method to update the 'gate_number' value
+        self.gate_number = gate_number
+
+    def get_boarding_time(self): #i defined the getter method to get the 'boarding_time'
+        return self.boarding_time
+
+    def set_boarding_time(self, boarding_time): #then the setter method to update the 'boarding_time' value
+        self.boarding_time = boarding_time
+
+
+    def display_details(self): #here i defined the methods to display all details of the boarding pass, so it would print all the derails of the flight and passenger for the boarding pass
+        print(f"Flight Airline: {self.flight.get_airline()}")  #it would print the airline name
+        print(f"Passenger Name: {self.passenger.get_name()}") #it would print the name of passenger owining the boarding pass
+        print(f"Booking Reference: {self.passenger.get_booking_reference()}") #it would print the booking reference
+        print(f"Passport Number: {self.passenger.get_passport_number()}") #it would print the passengers passport number 
+        print(f"Passenger Class: {self.passenger.get_passenger_class().value}")      #etc 
+        print(f"From: {self.flight.get_origin()}")
+        print(f"To: {self.flight.get_destination()}")
+        print(f"Flight Number: {self.flight.get_airline()}")
+        print(f"Date: {self.flight.get_departure_time().strftime('%d %b %y')}")
+        print(f"Boarding Time: {self.get_boarding_time()}")
+        print(f"Departure Time: {self.flight.get_departure_time().strftime('%H:%M')}")
+        print(f"Arrival Time: {self.flight.get_arrival_time().strftime('%H:%M')}")
+        print(f"Gate Number: {self.get_gate_number()}")
+        print(f"Seat Number: {self.get_seat_number()}")
+        print(f"Terminal Number: {self.terminal_number}")
+        print(f"Electronic ticket: {self.electronic_ticket}")
+
+#i created the class BoardingPassGenerator to get the generation of the boarding pass automacially 
+class BoardingPassGenerator:
+    def __init__(self):
+      # we initialize the class BoardingPassGenerator  
+        pass
+
+    def generate_boarding_pass(self, passenger, flight): 
+      #i creatde the boarding pass with our given values of seat, gate and the boarding time of the flight (from the figure 1)
+        seat_number = "09A"
+        gate_number = "03"
+        boarding_time = "11:20"
+        departure_time = "11:40"
+        arrival_time = "13:30"
+        terminal_number = "2"
+        electronic_ticket = "629"
+
+        #then i created a new 'BoardingPass' object with our given passenger, flight, and the other given values
+        boarding_pass = BoardingPass(passenger, flight, seat_number, gate_number, boarding_time, terminal_number, electronic_ticket)
+        return boarding_pass # we return this generated boarding pass
+
+#this is an example using the details provided in the assignment (figure 1)
+passenger_class = PassengerClass.FIRST_CLASS #i defined the passenger class to be 'FIRST_CLASS', to show on his boarding ticket that hes a 'firsr class' passenger
+passenger = Passenger("James Smith", "29823", "900111", passenger_class) #then i created a Passenger object using the firgure 1 details 
+
+#then i definde both the depature time and arrival time by creating the 'datetime' objects for each:
+departure_time = datetime.datetime(2020, 12, 6, 11, 40)
+arrival_time = datetime.datetime(2020, 12, 6, 13, 30)
+
+#i created then an object 'Flight' with our given details in figrue 1 
+flight = Flight("NA4321", "CHICAGO ORD", "NEW YORK JFK", departure_time, arrival_time)
+
+#here i generated the 'boarding pass' using the class 'BoardingPassGenerator' using the given details of passenger and flight 
+boarding_pass = BoardingPassGenerator().generate_boarding_pass(passenger, flight)
+#here i display the generated boarding pass using all the details above by recalling the 'boarding_pass'
+boarding_pass.display_details()
